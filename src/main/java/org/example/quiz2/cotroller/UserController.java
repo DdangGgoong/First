@@ -1,14 +1,9 @@
 package org.example.quiz2.cotroller;
 
-import org.apache.logging.log4j.message.Message;
-import org.example.quiz2.dto.UserDTO;
-import org.example.quiz2.entity.Users;
-import org.example.quiz2.repository.UserRepository;
-import org.example.quiz2.service.UserServices;
+import org.example.quiz2.dto.BoardDTO;
+import org.example.quiz2.entity.Boards;
+import org.example.quiz2.service.BoardServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,18 +13,18 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserServices userServices;
+    private BoardServices boardServices;
 
     // 생성
     @PostMapping("/board")
-    public ResponseEntity<String> addUser(UserDTO userDTO) {
+    public ResponseEntity<String> addUser(BoardDTO boardDTO) {
 //        if(userDTO.getEmail().contains("@")){
 //            return userServices.addUser(userDTO);
 //        }
 //        else {
 //            return userServices.noAddUser(userDTO);
 //        }
-        return userServices.addUser(userDTO);
+        return boardServices.addUser(boardDTO);
 
     }
 
@@ -37,22 +32,22 @@ public class UserController {
     @PostMapping("/board/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
 
-        return userServices.delete(id);
+        return boardServices.delete(id);
     }
 
     // 조회
     @GetMapping("/board")
-    public ResponseEntity<List<Users>> listUsers() {
+    public ResponseEntity<List<Boards>> listUsers() {
 
-        return  userServices.userList();
+        return  boardServices.userList();
 
     }
 
     // 수정
     @PutMapping("/board/{id}")
-    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody BoardDTO boardDTO) {
 
-        return userServices.update(id, userDTO);
+        return boardServices.update(id, boardDTO);
 
 
     }

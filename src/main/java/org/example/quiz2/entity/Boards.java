@@ -8,18 +8,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.quiz2.dto.UserDTO;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class Boards extends Timestamped{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

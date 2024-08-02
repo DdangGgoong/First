@@ -1,12 +1,12 @@
 package org.example.quiz2.dto;
 
 import lombok.Data;
-import org.example.quiz2.entity.Users;
+import org.example.quiz2.entity.Boards;
 
 import java.util.Date;
 
 @Data
-public class UserDTO {
+public class BoardDTO {
     private Long id;
     private String title;
     private String email;
@@ -16,8 +16,8 @@ public class UserDTO {
 
 
 
-    public Users toEntity() {
-        return Users.builder()
+    public Boards toEntity() {
+        return Boards.builder()
                 .title(title)
                 .content(email)
                 .author(author)
